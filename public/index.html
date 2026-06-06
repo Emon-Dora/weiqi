@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>云弈围棋</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="board-panel">
+        <div class="topbar">
+          <div>
+            <h1>云弈围棋</h1>
+            <p id="statusText">登录后开始对局</p>
+          </div>
+          <div class="turn-pill">
+            <span id="turnDot" class="stone-dot black"></span>
+            <span id="turnText">黑方</span>
+          </div>
+        </div>
+        <div class="board-shell">
+          <canvas id="board" width="980" height="980" aria-label="围棋棋盘"></canvas>
+        </div>
+        <div class="actionbar">
+          <button id="scoreButton" type="button" disabled>数子结算</button>
+          <button id="resignButton" type="button" disabled>认输</button>
+        </div>
+      </section>
+
+      <section class="control-panel">
+        <div id="authCard" class="panel-block">
+          <h2>账号</h2>
+          <input id="username" autocomplete="username" placeholder="用户名" />
+          <input id="password" autocomplete="current-password" type="password" placeholder="密码，至少 6 位" />
+          <div class="split-buttons">
+            <button id="loginButton" type="button">登录</button>
+            <button id="registerButton" type="button">注册</button>
+          </div>
+        </div>
+
+        <div id="profileCard" class="panel-block hidden">
+          <h2 id="helloText">玩家</h2>
+          <div class="split-buttons">
+            <button id="onlineRoomButton" type="button">创建联机房</button>
+            <button id="aiRoomButton" type="button">人机对战</button>
+          </div>
+        </div>
+
+        <div class="panel-block">
+          <h2>当前房间</h2>
+          <div id="roomInfo" class="room-info">暂无房间</div>
+          <div class="emoji-row">
+            <button class="emoji-button" type="button" data-emoji="👍">👍</button>
+            <button class="emoji-button" type="button" data-emoji="👏">👏</button>
+            <button class="emoji-button" type="button" data-emoji="🤔">🤔</button>
+            <button class="emoji-button" type="button" data-emoji="😄">😄</button>
+            <button class="emoji-button" type="button" data-emoji="🔥">🔥</button>
+          </div>
+          <div id="emojiFeed" class="emoji-feed"></div>
+        </div>
+
+        <div class="panel-block">
+          <h2>可加入房间</h2>
+          <div id="roomList" class="list"></div>
+        </div>
+      </section>
+
+      <aside class="rank-panel">
+        <h2>最近十局胜率排名</h2>
+        <div id="rankingList" class="rank-list"></div>
+      </aside>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

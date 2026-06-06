@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: go-online-game
+    runtime: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
